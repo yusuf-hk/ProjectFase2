@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Responsible for all user interaction, like displaying the menu
  * and receiving input from the user.
  *
- * @author Yusuf
+ * @author Yusuf Harmankaya
  * @version 0.1
  */
 
