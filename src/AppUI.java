@@ -19,6 +19,7 @@ public class AppUI
 
     /**
      * Creates an instance of the ApplicationUI User interface.
+     * 
      */
     public AppUI()
     {
