@@ -15,7 +15,6 @@ public class AppUI
     private int choice;
     private Scanner input;
     private Registry bookRegistry;
-    private Book book;
 
     public AppUI()
     {
@@ -200,7 +199,7 @@ public class AppUI
         System.out.println("Enter book edition:");
         String edition = input.nextLine();
 
-        book = new Book(title, series, author, date, genre, pages, publisher, edition);
+        Book book = new Book(title, series, author, date, genre, pages, publisher, edition);
         bookRegistry.addBook(book);
         System.out.println("-----You have successfully added a new book!-----");
     }
@@ -209,18 +208,16 @@ public class AppUI
     {
         System.out.println("Enter book title to be removed from registry: ");
         String bookRemove = input.next();
-        if(book.getTitleOfBook().equals(bookRemove))
-        {
-            bookRegistry.removeBook(bookRemove);
-            System.out.println("----" + bookRemove + " has been removed from registry!----");
-        }
-
-        else
-        {
-            System.out.println(bookRemove + " is not in the library. Please enter " +
-                    "a different book to be removed");
-            System.out.println("---------------------------------------");
-        }
+        Book b = bookRegistry.removeBook(bookRemove);
+            if(b == null)
+            {
+                System.out.println("----" + bookRemove + " is not found in registry, " +
+                        "please enter different book title----");
+            }
+            else
+            {
+                System.out.println("----" + bookRemove + " has been removed from registry!----");
+            }
     }
 
     public void findBookByTitle()
@@ -266,8 +263,8 @@ public class AppUI
 
     public void fillRegistryWithDummies()
     {
-        bookRegistry.addBook(book = new Book("Yusuf the man", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
-        bookRegistry.addBook(book = new Book("Yusuf the dude", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
-        bookRegistry.addBook(book = new Book("mathias", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("Yusuf the man", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("Yusuf the dude", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("mathias", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
     }
 }

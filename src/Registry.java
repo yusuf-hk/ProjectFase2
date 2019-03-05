@@ -44,7 +44,7 @@ public class Registry
      * Remove a book from the book registry
      * @param title The title of the book to be removed
      */
-    public void removeBook(String title)
+    public Book removeBook(String title)
     {
         //Ask the collection (ArrayList) for its iterator
         Iterator<Book> it = this.bookRegistry.iterator();
@@ -54,8 +54,10 @@ public class Registry
            if(b.getTitleOfBook().equals(title))
            {
                it.remove();
+               return b;
            }
        }
+       return null;
     }
 
     /**
