@@ -122,5 +122,4 @@ public class Book
     {
         return this.editionOfBook;
     }
-
 }
