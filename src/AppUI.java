@@ -4,9 +4,9 @@ import java.util.Scanner;
 /**
  * Makes up the user interface (text based) of the application.
  * Responsible for all user interaction, like displaying the menu
- * and receiving input from the user.
+ * and receiving input from the user. test
  *
- * @author Yusuf Harmankaya
+ * @author Yusuf
  * @version 0.1
  */
 
@@ -15,7 +15,6 @@ public class AppUI
     private int choice;
     private Scanner input;
     private Registry bookRegistry;
-    private Book book;
 
     /**
      * Creates an instance of the ApplicationUI User interface.
@@ -51,27 +50,27 @@ public class AppUI
                     removeBookInRegistry();
                     break;
 
-                case 4: //finds book by title
+                case 4: //find book by title
                     findBookByTitle();
                     break;
 
-                case 5: //finds book by series
+                case 5: //find book by series
                     findBookBySeries();
                     break;
 
-                case 6: //finds book by author
+                case 6: //find book by author
                     findBookByAuthor();
                     break;
 
-                case 7: //finds book by publisher
+                case 7: //find book by publisher
                     findBookByPublisher();
                     break;
 
-                case 9: //fills registry with dummies
+                case 9: //fill registry with dummies
                     fillRegistryWithDummies();
                     break;
 
-                case 10: //prints out a given text
+                case 10: //prints a given text
                     System.out.println("\nThank you for using Application v0.1. Bye!\n");
                     choice = 10;
                     break;
@@ -97,9 +96,8 @@ public class AppUI
     }
 
     /**
-     * Lists all the books in the registry.
-     * If there are no books in the registry,
-     * an error message will be printed.
+     * Lists all books in the registry.
+     * If there are zero books, a error message will pe printed.
      */
     public void listAllBook()
     {
@@ -119,10 +117,9 @@ public class AppUI
     }
 
     /**
-     * Finds books by series.
-     * If there are no books,
-     * an error message will be printed.
-     * Otherwise it will print a list with all books by that series.
+     * Finds book by series.
+     * If no books are found, an error message will be printed.
+     * Otherwise all the books found will be printed.
      */
     public void findBookBySeries()
     {
@@ -148,10 +145,9 @@ public class AppUI
     }
 
     /**
-     * Finds books by author.
-     * If there are no books,
-     * an error message will be printed.
-     * Otherwise it will print a list with all books by that author.
+     * Finds book by author.
+     * If no books are found, an error message will be printed.
+     * Otherwise all the books found will be printed.
      */
     public void findBookByAuthor()
     {
@@ -177,10 +173,9 @@ public class AppUI
     }
 
     /**
-     * Finds books by publisher.
-     * If there are no books,
-     * an error message will be printed.
-     * Otherwise it will print a list with all books by that publisher.
+     * Finds book by publisher.
+     * If no books are found, an error message will be printed.
+     * Otherwise all the books found will be printed.
      */
     public void findBookByPublisher()
     {
@@ -206,8 +201,8 @@ public class AppUI
     }
 
     /**
-     * This method adds a new book.
-     * You will have to type everything needed to complete a book.
+     * Adds new book.
+     * To make the book, you need to enter everything needed.
      */
     public void addNewBook()
     {
@@ -238,39 +233,35 @@ public class AppUI
         System.out.println("Enter book edition:");
         String edition = input.nextLine();
 
-        book = new Book(title, series, author, date, genre, pages, publisher, edition);
+        Book book = new Book(title, series, author, date, genre, pages, publisher, edition);
         bookRegistry.addBook(book);
         System.out.println("-----You have successfully added a new book!-----");
     }
 
     /**
-     * Removes a book in the registry.
-     * If the book entered isn't in the registry,
-     * an error message will be printed.
+     * Remove a book in registry.
+     * If the book is not found, an error message will be printed.
      */
     public void removeBookInRegistry()
     {
         System.out.println("Enter book title to be removed from registry: ");
         String bookRemove = input.next();
-        if(book.getTitleOfBook().equals(bookRemove))
+        Book b = bookRegistry.removeBook(bookRemove);
+        if(b == null)
         {
-            bookRegistry.removeBook(bookRemove);
-            System.out.println("----" + bookRemove + " has been removed from registry!----");
+            System.out.println("----" + bookRemove + " is not found in registry, " +
+                    "please enter different book title----");
         }
-
         else
         {
-            System.out.println(bookRemove + " is not in the library. Please enter " +
-                    "a different book to be removed");
-            System.out.println("---------------------------------------");
+            System.out.println("----" + bookRemove + " has been removed from registry!----");
         }
     }
 
     /**
      * Finds book by title.
-     * If the book with title x is not found,
-     * an error message will be printed.
-     * Otherwise a list of all books with given title will be printed.
+     * If no books are found, an error message will be printed.
+     * Otherwise all the books found will be printed.
      */
     public void findBookByTitle()
     {
@@ -314,12 +305,12 @@ public class AppUI
     }
 
     /**
-     * Fills registry with dummies.
+     * Yusuf needs this because he is lazy
      */
     public void fillRegistryWithDummies()
     {
-        bookRegistry.addBook(book = new Book("Yusuf the man", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
-        bookRegistry.addBook(book = new Book("Yusuf the dude", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
-        bookRegistry.addBook(book = new Book("Yusuf the myth", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("Yusuf the man", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("Yusuf the dude", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("Yusuf the myth", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
     }
 }
