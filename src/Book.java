@@ -9,6 +9,7 @@ public class Book
     //The title of the book. For example "Narnia"
     private String titleOfBook;
 
+    //The series of the book
     private String seriesOfBook;
 
     //The name of the author who wrote the book. For example "Ola Nordmann"
