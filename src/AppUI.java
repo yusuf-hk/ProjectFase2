@@ -50,6 +50,18 @@ public class AppUI
                     findBookByTitle();
                     break;
 
+                case 5:
+                    findBookBySeries();
+                    break;
+
+                case 6:
+                    findBookByAuthor();
+                    break;
+
+                case 7:
+                    findBookByPublisher();
+                    break;
+
                 case 9:
                     fillRegistryWithDummies();
                     break;
@@ -68,6 +80,9 @@ public class AppUI
         System.out.println("2: Add new book");
         System.out.println("3: Remove a book from book registry");
         System.out.println("4: Find book by title");
+        System.out.println("5: Find book by series");
+        System.out.println("6: Find book by author");
+        System.out.println("7: Find book by publisher");
         System.out.println("9: Fill registry with dummies");
         System.out.println("10: Exit");
     }
@@ -78,9 +93,79 @@ public class AppUI
         if(bookList == null)
         {
             System.out.println("There is no book in registry");
+            System.out.println("---------------------------------------");
         }
         else
         {
+            for(Book b : bookList)
+            {
+                printBook(b);
+            }
+        }
+    }
+
+    public void findBookBySeries()
+    {
+        input = new Scanner(System.in);
+        System.out.println("Enter the book series: ");
+        String series = input.nextLine();
+        ArrayList<Book> bookList = bookRegistry.listBySeries(series);
+        if(bookList == null)
+        {
+            System.out.println("There is no book with series: " + series);
+            System.out.println("Please try different series.");
+            System.out.println("---------------------------------------");
+        }
+        else
+        {
+            System.out.println("Here is the list of all books by the series " + series + ":");
+            System.out.println("---------------------------------------");
+            for(Book b : bookList)
+            {
+                printBook(b);
+            }
+        }
+    }
+
+    public void findBookByAuthor()
+    {
+        input = new Scanner(System.in);
+        System.out.println("Enter the book series: ");
+        String author = input.nextLine();
+        ArrayList<Book> bookList = bookRegistry.listByAuthor(author);
+        if(bookList == null)
+        {
+            System.out.println("There is no book with author: " + author);
+            System.out.println("Please try different author.");
+            System.out.println("---------------------------------------");
+        }
+        else
+        {
+            System.out.println("Here is the list of all books by the author: " + author);
+            System.out.println("---------------------------------------");
+            for(Book b : bookList)
+            {
+                printBook(b);
+            }
+        }
+    }
+
+    public void findBookByPublisher()
+    {
+        input = new Scanner(System.in);
+        System.out.println("Enter the book publisher: ");
+        String publisher = input.nextLine();
+        ArrayList<Book> bookList = bookRegistry.listByPublisher(publisher);
+        if(bookList == null)
+        {
+            System.out.println("There is no book with publisher: " + publisher);
+            System.out.println("Please try different publisher.");
+            System.out.println("---------------------------------------");
+        }
+        else
+        {
+            System.out.println("Here is the list of all books by the publisher: " + publisher);
+            System.out.println("---------------------------------------");
             for(Book b : bookList)
             {
                 printBook(b);
@@ -136,6 +221,7 @@ public class AppUI
         {
             System.out.println(bookRemove + " is not in the library. Please enter " +
                     "a different book to be removed");
+            System.out.println("---------------------------------------");
         }
     }
 
