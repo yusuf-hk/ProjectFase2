@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -19,12 +17,19 @@ public class AppUI
     private Registry bookRegistry;
     private Book book;
 
+    /**
+     * Creates an instance of the ApplicationUI User interface.
+     */
     public AppUI()
     {
         bookRegistry = new Registry();
         input = new Scanner(System.in);
     }
 
+    /**
+     * Starts the application by showing the menu and retrieving input from the
+     * user.
+     */
     public void start()
     {
         while(choice != 10)
@@ -46,27 +51,27 @@ public class AppUI
                     removeBookInRegistry();
                     break;
 
-                case 4:
+                case 4: //finds book by title
                     findBookByTitle();
                     break;
 
-                case 5:
+                case 5: //finds book by series
                     findBookBySeries();
                     break;
 
-                case 6:
+                case 6: //finds book by author
                     findBookByAuthor();
                     break;
 
-                case 7:
+                case 7: //finds book by publisher
                     findBookByPublisher();
                     break;
 
-                case 9:
+                case 9: //fills registry with dummies
                     fillRegistryWithDummies();
                     break;
 
-                case 10:
+                case 10: //prints out a given text
                     System.out.println("\nThank you for using Application v0.1. Bye!\n");
                     choice = 10;
                     break;
@@ -74,6 +79,10 @@ public class AppUI
         }
     }
 
+    /**
+     * Displays the menu to the user, and waits for the users input. The user is
+     * expected to input an integer between 1 and the max number of menu items.
+     */
     public void showMenu()
     {
         System.out.println("1: List all books");
@@ -87,6 +96,11 @@ public class AppUI
         System.out.println("10: Exit");
     }
 
+    /**
+     * Lists all the books in the registry.
+     * If there are no books in the registry,
+     * an error message will be printed.
+     */
     public void listAllBook()
     {
         ArrayList<Book> bookList = bookRegistry.listAllBook();
@@ -104,6 +118,12 @@ public class AppUI
         }
     }
 
+    /**
+     * Finds books by series.
+     * If there are no books,
+     * an error message will be printed.
+     * Otherwise it will print a list with all books by that series.
+     */
     public void findBookBySeries()
     {
         input = new Scanner(System.in);
@@ -127,6 +147,12 @@ public class AppUI
         }
     }
 
+    /**
+     * Finds books by author.
+     * If there are no books,
+     * an error message will be printed.
+     * Otherwise it will print a list with all books by that author.
+     */
     public void findBookByAuthor()
     {
         input = new Scanner(System.in);
@@ -150,6 +176,12 @@ public class AppUI
         }
     }
 
+    /**
+     * Finds books by publisher.
+     * If there are no books,
+     * an error message will be printed.
+     * Otherwise it will print a list with all books by that publisher.
+     */
     public void findBookByPublisher()
     {
         input = new Scanner(System.in);
@@ -173,6 +205,10 @@ public class AppUI
         }
     }
 
+    /**
+     * This method adds a new book.
+     * You will have to type everything needed to complete a book.
+     */
     public void addNewBook()
     {
         Scanner input = new Scanner(System.in);
@@ -207,6 +243,11 @@ public class AppUI
         System.out.println("-----You have successfully added a new book!-----");
     }
 
+    /**
+     * Removes a book in the registry.
+     * If the book entered isn't in the registry,
+     * an error message will be printed.
+     */
     public void removeBookInRegistry()
     {
         System.out.println("Enter book title to be removed from registry: ");
@@ -225,6 +266,12 @@ public class AppUI
         }
     }
 
+    /**
+     * Finds book by title.
+     * If the book with title x is not found,
+     * an error message will be printed.
+     * Otherwise a list of all books with given title will be printed.
+     */
     public void findBookByTitle()
     {
         input = new Scanner(System.in);
@@ -266,10 +313,14 @@ public class AppUI
         System.out.println("---------------------------------------");
     }
 
+    /**
+     * Fills registry with dummies.
+     *
+     */
     public void fillRegistryWithDummies()
     {
         bookRegistry.addBook(book = new Book("Yusuf the man", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
         bookRegistry.addBook(book = new Book("Yusuf the dude", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
-        bookRegistry.addBook(book = new Book("mathias", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(book = new Book("Yusuf the myth", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
     }
 }
