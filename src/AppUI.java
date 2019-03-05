@@ -315,7 +315,6 @@ public class AppUI
 
     /**
      * Fills registry with dummies.
-     *
      */
     public void fillRegistryWithDummies()
     {
