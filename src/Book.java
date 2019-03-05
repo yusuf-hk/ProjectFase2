@@ -21,7 +21,7 @@ public class Book
     private String genreOfBook;
 
     //Number of pages the book contains. For example "423"
-    private int pagesOfBook;
+    private String pagesOfBook;
 
     //The publisher of the book. For example "Aschehoug"
     private String publisherOfBook;
@@ -39,7 +39,7 @@ public class Book
      * @param publisher The publisher of the book.
      * @param edition The edition of the book.
      */
-    public Book(String title, String serie, String author, String date, String genre, int pages, String publisher, String edition)
+    public Book(String title, String serie, String author, String date, String genre, String pages, String publisher, String edition)
     {
         this.titleOfBook = title;
         this.seriesOfBook = serie;
@@ -100,7 +100,7 @@ public class Book
      * Returns number of the pages the book has
      * @return
      */
-    public int getPagesOfBook()
+    public String getPagesOfBook()
     {
         return this.pagesOfBook;
     }
@@ -121,17 +121,6 @@ public class Book
     public String getEditionOfBook()
     {
         return this.editionOfBook;
-    }
-
-    /**
-     * Changes the edition of the book
-     * @param edition the latest edition
-     * @return newest edition of the book
-     */
-    public String setEditionOfBook(String edition)
-    {
-        this.editionOfBook = edition;
-        return edition;
     }
 
 }

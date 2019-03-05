@@ -17,7 +17,7 @@ import java.util.Iterator;
  */
 public class Registry
 {
-    private ArrayList<Book> bookRegistry;
+    public static ArrayList<Book> bookRegistry;
 
     /**
      * The constructor for the class registry
@@ -53,8 +53,7 @@ public class Registry
            Book b = it.next();
            if(b.getTitleOfBook().equals(title))
            {
-               System.out.println("Book has been removed, " + b.getTitleOfBook());
-               bookRegistry.remove(b);
+               it.remove();
            }
        }
     }
@@ -64,15 +63,24 @@ public class Registry
      * print the book if found
      * @param title the author to search for
      */
-    public void listByTitle(String title)
+    public ArrayList<Book> listByTitle(String title)
     {
+        boolean found = false;
+        ArrayList<Book> bookList = new ArrayList<>();
         for(Book book : bookRegistry)
         {
-            if(book.getTitleOfBook().toLowerCase().contains(title))
+            String titleString = book.getTitleOfBook().toLowerCase();
+            if(titleString.contains(title))
             {
-                printBook(book);
+                found = true;
+                bookList.add(book);
             }
         }
+        if(!found)
+        {
+            return null;
+        }
+        return bookList;
     }
 
     /**
@@ -80,15 +88,24 @@ public class Registry
      * print the book if found.
      * @param series the author to search for
      */
-    public void listBySeries(String series)
+    public ArrayList<Book> listBySeries(String series)
     {
+        boolean found = false;
+        ArrayList<Book> bookList = new ArrayList<>();
         for(Book book : bookRegistry)
         {
-            if(book.getSeriesOfBook().toLowerCase().contains(series))
+            String seriesString = book.getSeriesOfBook().toLowerCase();
+            if(seriesString.contains(series))
             {
-                printBook(book);
+                found = true;
+                bookList.add(book);
             }
         }
+        if(!found)
+        {
+            return null;
+        }
+        return bookList;
     }
 
     /**
@@ -96,15 +113,24 @@ public class Registry
      * print the book if found
      * @param author the author to search for
      */
-    public void listByAuthor(String author)
+    public ArrayList<Book> listByAuthor(String author)
     {
+        boolean found = false;
+        ArrayList<Book> bookList = new ArrayList<>();
         for(Book book : bookRegistry)
         {
-            if(book.getAuthorOfBook().toLowerCase().contains(author))
+            String authorString = book.getAuthorOfBook().toLowerCase();
+            if(authorString.contains(author))
             {
-                printBook(book);
+                found = true;
+                bookList.add(book);
             }
         }
+        if(!found)
+        {
+            return null;
+        }
+        return bookList;
     }
 
     /**
@@ -112,46 +138,44 @@ public class Registry
      * print the book if found
      * @param publisher the publisher to search for
      */
-    public void listByPublisher(String publisher)
+    public ArrayList<Book> listByPublisher(String publisher)
     {
+        boolean found = false;
+        ArrayList<Book> bookList = new ArrayList<>();
         for(Book book : bookRegistry)
         {
-            if(book.getPublisherOfBook().toLowerCase().contains(publisher))
+            String publisherString = book.getPublisherOfBook().toLowerCase();
+            if(publisherString.contains(publisher))
             {
-                printBook(book);
+                found = true;
+                bookList.add(book);
             }
         }
-    }
-
-    /**
-     * Prints the information of the book provided. This is a private
-     * helper method used by the other methods in the class.
-     *
-     * @param book The Book to print the details of.
-     */
-    public void printBook(Book book)
-    {
-        System.out.println("Title: " + book.getTitleOfBook());
-        System.out.println("Series: " + book.getSeriesOfBook());
-        System.out.println("Author: " + book.getAuthorOfBook());
-        System.out.println("Date: " + book.getDateOfBook());
-        System.out.println("Genre: " + book.getGenreOfBook());
-        System.out.println("Pages: " + book.getPagesOfBook());
-        System.out.println("Publisher: " + book.getPublisherOfBook());
-        System.out.println("Edition: " + book.getEditionOfBook());
-        System.out.println("---------------------------------------");
+        if(!found)
+        {
+            return null;
+        }
+        return bookList;
     }
 
     /**
      * Lists all books in the register by printing them to the
      * out-stream (console).
      */
-    public void listAllBook()
+    public ArrayList<Book> listAllBook()
     {
-        // for-each
-        for (Book b : this.bookRegistry)
+        boolean found = false;
+        ArrayList<Book> bookList = new ArrayList<>();
+
+        for(Book book : bookRegistry)
         {
-            printBook(b);
+            found = true;
+            bookList.add(book);
         }
+        if(!found)
+        {
+            return null;
+        }
+        return bookList;
     }
 }
