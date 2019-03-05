@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Makes up the user interface (text based) of the application.
  * Responsible for all user interaction, like displaying the menu
- * and receiving input from the user.
+ * and receiving input from the user. test
  *
  * @author Yusuf
  * @version 0.1
