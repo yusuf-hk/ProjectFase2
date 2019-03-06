@@ -7,7 +7,7 @@ import java.util.Scanner;
  * and receiving input from the user.
  *
  * @author Yusuf
- * @version 0.1
+ * @version 0.2
  */
 
 public class AppUI
@@ -31,7 +31,7 @@ public class AppUI
      */
     public void start()
     {
-        while(choice != 10)
+        while(choice != 9)
         {
             showMenu();
             choice = input.nextInt();
@@ -66,13 +66,13 @@ public class AppUI
                     findBookByPublisher();
                     break;
 
-                case 9: //fill registry with dummies
+                case 8: //fill registry with dummies
                     fillRegistryWithDummies();
                     break;
 
-                case 10: //prints a given text
+                case 9: //prints a given text
                     System.out.println("\nThank you for using Application v0.1. Bye!\n");
-                    choice = 10;
+                    choice = 9;
                     break;
             }
         }
@@ -91,8 +91,8 @@ public class AppUI
         System.out.println("5: Find book by series");
         System.out.println("6: Find book by author");
         System.out.println("7: Find book by publisher");
-        System.out.println("9: Fill registry with dummies");
-        System.out.println("10: Exit");
+        System.out.println("8: Fill registry with dummies");
+        System.out.println("9: Exit");
     }
 
     /**
