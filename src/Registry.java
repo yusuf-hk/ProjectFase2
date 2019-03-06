@@ -32,12 +32,14 @@ public class Registry
      * @param book The book to be added to the registry.
      *             If <code>null</code>, nothing is being added.
      */
-    public void addBook(Book book)
+    public boolean addBook(Book book)
     {
         if (book != null)
         {
             this.bookRegistry.add(book);
+            return true;
         }
+        return false;
     }
 
     /**
@@ -179,5 +181,8 @@ public class Registry
             return null;
         }
         return bookList;
+    }
+    public ArrayList<Book> getBookList(){
+        return bookRegistry;
     }
 }

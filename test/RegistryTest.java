@@ -14,9 +14,9 @@ public class RegistryTest {
 
     @Before
     public void setUp() throws Exception {
-        book = new Book("Revenge of the sith", "Star Wars", "George Lucas", "15.03.2005", "Action", "1000", "George Lucas");
-        book2 = new Book("Revenge of the god", "Star Wars", "George Lucas", "15.03.2009", "Action", "1000", "George Lucas");
-        book3 = new Book("Revenge of the house", "Star Wars", "George Lucas", "15.03.2011", "Action", "1000", "George Lucas");
+        book = new Book("Revenge of the sith", "Star Wars", "George Lucas", "15.03.2005", "Action", "1000", "George Lucas", "5");
+        book2 = new Book("Revenge of the god", "Star Wars", "George Lucas", "15.03.2009", "Action", "1000", "George Lucas", "6");
+        book3 = new Book("Revenge of the house", "Star Wars", "George Lucas", "15.03.2011", "Action", "1000", "George Lucas", "1");
 
 
         bookRegistery = new Registry(); // creates a book registry
