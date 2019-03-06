@@ -245,7 +245,7 @@ public class AppUI
     public void removeBookInRegistry()
     {
         System.out.println("Enter book title to be removed from registry: ");
-        String bookRemove = input.next();
+        String bookRemove = input.nextLine();
         Book b = bookRegistry.removeBook(bookRemove);
         if(b == null)
         {
@@ -310,7 +310,7 @@ public class AppUI
     public void fillRegistryWithDummies()
     {
         bookRegistry.addBook(new Book("Yusuf the man", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
-        bookRegistry.addBook(new Book("Yusuf the dude", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
-        bookRegistry.addBook(new Book("Yusuf the myth", "Harmankaya", "Yusuf Harmanakya", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("Yusuf the dude", "Harmankaya 1", "Mathias Forberg", "123", "Comedy", "123", "Pearson", "First edition"));
+        bookRegistry.addBook(new Book("Yusuf the myth", "Harmankaya 2", "", "123", "Comedy", "123", "Pearson", "First edition"));
     }
 }

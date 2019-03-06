@@ -2,7 +2,7 @@
  * Represents a book. information of the book
  *
  * @author Yusuf Harmankaya
- * @version 0.1
+ * @version 0.2
  */
 public class Book
 {
@@ -98,8 +98,8 @@ public class Book
     }
 
     /**
-     * Returns number of the pages the book has
-     * @return
+     * Returns number of the pages the book has.
+     * @return number of the pages the book has.
      */
     public String getPagesOfBook()
     {
