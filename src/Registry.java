@@ -12,12 +12,12 @@ import java.util.Iterator;
  * - Find book by author
  * - List all books
  *
- * @author Yusuf
- * @version v0.1
+ * @author Yusuf Harmankaya
+ * @version v0.2
  */
 public class Registry
 {
-    public static ArrayList<Book> bookRegistry;
+    private ArrayList<Book> bookRegistry;
 
     /**
      * The constructor for the class registry
@@ -64,7 +64,7 @@ public class Registry
 
     /**
      * Search the book registry for book with the title given by the parameter
-     * print the book if found
+     * print the book if found, If not found, it will return null.
      * @param title the author to search for
      */
     public ArrayList<Book> listByTitle(String title)
